@@ -7,7 +7,7 @@ from mobilenet_unet import MobileNetUNet
 import matplotlib.pyplot as plt
 import torch.nn.functional as fun
 
-image_path = "data/test/005.jpg"
+image_path = "data/test/001.jpg"
 
 # Load the model
 model = MobileNetUNet(num_classes=1)
@@ -101,12 +101,3 @@ plt.show()
 
 # save the masked image
 cv2.imwrite("data/output/masked_image.jpg", cropped_masked_image)
-
-#%%
-### Read car plate
-import easyocr
-
-reader = easyocr.Reader(['ar', 'en'])  # Arabic and English
-results = reader.readtext("data/output/masked_image.jpg", detail=0)
-print("Extracted Text:\n", results)
-
